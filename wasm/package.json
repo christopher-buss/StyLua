@@ -4,7 +4,7 @@
         "Christopher Buss"
     ],
     "description": "A code formatter for Lua (ESM/CJS fork)",
-    "version": "2.1.0-esm.1",
+    "version": "2.1.0-esm.2",
     "license": "MPL-2.0",
     "readme": "README.md",
     "repository": {
