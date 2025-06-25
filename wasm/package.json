@@ -1,7 +1,7 @@
 {
-    "name": "@christopher-buss/stylua",
+    "name": "@isentinel/stylua",
     "collaborators": [
-        "Christopher Buss <christopher.buss@outlook.com>"
+        "Christopher Buss"
     ],
     "description": "A code formatter for Lua (ESM/CJS fork)",
     "version": "2.1.0-esm.1",
