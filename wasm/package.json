@@ -1,15 +1,15 @@
 {
-    "name": "@johnnymorganz/stylua",
+    "name": "@christopher-buss/stylua",
     "collaborators": [
-        "JohnnyMorganz <johnnymorganz@outlook.com>"
+        "Christopher Buss <christopher.buss@outlook.com>"
     ],
-    "description": "A code formatter for Lua",
-    "version": "2.1.0",
+    "description": "A code formatter for Lua (ESM/CJS fork)",
+    "version": "2.1.0-esm.1",
     "license": "MPL-2.0",
     "readme": "README.md",
     "repository": {
         "type": "git",
-        "url": "https://github.com/johnnymorganz/stylua"
+        "url": "https://github.com/christopher-buss/stylua"
     },
     "files": [
         "stylua.web/stylua_lib_bg.wasm.d.ts",
@@ -27,34 +27,14 @@
     ],
     "type": "module",
     "main": "stylua_lib.cjs",
-    "module": "stylua_lib_bundler.js",
+    "module": "stylua_lib.mjs",
     "types": "stylua.web/stylua_lib.d.ts",
     "exports": {
         ".": {
-            "webpack": {
-                "node": "./stylua_lib.mjs",
-                "default": "./stylua_lib_bundler.js"
-            },
-            "require": {
-                "types": "./stylua_lib.d.cts",
-                "default": "./stylua_lib.cjs"
-            },
-            "node": {
-                "types": "./stylua_lib.d.mts",
-                "default": "./stylua_lib.mjs"
-            },
-            "deno": {
-                "types": "./stylua_lib.d.mts",
-                "default": "./stylua_lib.mjs"
-            },
-            "bun": {
-                "types": "./stylua_lib.d.mts",
-                "default": "./stylua_lib.mjs"
-            },
-            "default": {
-                "types": "./stylua_lib_bundler.d.ts",
-                "default": "./stylua_lib_bundler.js"
-            }
+            "types": "./stylua.web/stylua_lib.d.ts",
+            "require": "./stylua_lib.cjs",
+            "import": "./stylua_lib.mjs",
+            "default": "./stylua_lib.mjs"
         },
         "./web": {
             "types": "./stylua.web/stylua_lib.d.ts",
@@ -62,7 +42,7 @@
         },
         "./web/*": "./stylua.web/*",
         "./stylua_lib_bg.wasm": "./stylua.web/stylua_lib_bg.wasm",
-        "./package.josn": "./package.josn",
+        "./package.json": "./package.json",
         "./*": "./*"
     },
     "browser": {
@@ -77,6 +57,16 @@
         "utility",
         "lua",
         "lua51",
-        "formatter"
-    ]
+        "formatter",
+        "esm",
+        "commonjs",
+        "dual-package"
+    ],
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^28.0.6",
+        "@rollup/plugin-node-resolve": "^16.0.1"
+    },
+    "dependencies": {
+        "rollup": "^4.44.0"
+    }
 }
