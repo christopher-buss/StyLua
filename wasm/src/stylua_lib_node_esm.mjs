@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Load and initialize the WASM module
-const wasmPath = join(__dirname, '..', 'stylua.web', 'stylua_lib_bg.wasm');
+const wasmPath = join(__dirname, 'stylua.web', 'stylua_lib_bg.wasm');
 const wasmBytes = readFileSync(wasmPath);
 initSync(wasmBytes);
 
