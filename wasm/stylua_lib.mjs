@@ -178,6 +178,26 @@ Unix:0,"0":"Unix",
 */
 Windows:1,"1":"Windows", });
 /**
+* When to use spaces after function names
+*/
+const SpaceAfterFunctionNames = Object.freeze({
+/**
+* Never use spaces after function names.
+*/
+Never:0,"0":"Never",
+/**
+* Use spaces after function names only for function definitions.
+*/
+Definitions:1,"1":"Definitions",
+/**
+* Use spaces after function names only for function calls.
+*/
+Calls:2,"2":"Calls",
+/**
+* Use spaces after function names in definitions and calls.
+*/
+Always:3,"3":"Always", });
+/**
 * The Lua syntax version to use
 */
 const LuaVersion = Object.freeze({
@@ -216,26 +236,6 @@ LuaJIT:6,"6":"LuaJIT",
 */
 CfxLua:7,"7":"CfxLua", });
 /**
-* When to use spaces after function names
-*/
-const SpaceAfterFunctionNames = Object.freeze({
-/**
-* Never use spaces after function names.
-*/
-Never:0,"0":"Never",
-/**
-* Use spaces after function names only for function definitions.
-*/
-Definitions:1,"1":"Definitions",
-/**
-* Use spaces after function names only for function calls.
-*/
-Calls:2,"2":"Calls",
-/**
-* Use spaces after function names in definitions and calls.
-*/
-Always:3,"3":"Always", });
-/**
 * The type of indents to use when indenting
 */
 const IndentType = Object.freeze({
@@ -247,6 +247,26 @@ Tabs:0,"0":"Tabs",
 * Indent using spaces (` `)
 */
 Spaces:1,"1":"Spaces", });
+/**
+* The style of quotes to use within string literals
+*/
+const QuoteStyle = Object.freeze({
+/**
+* Use double quotes where possible, but change to single quotes if it produces less escapes
+*/
+AutoPreferDouble:0,"0":"AutoPreferDouble",
+/**
+* Use single quotes where possible, but change to double quotes if it produces less escapes
+*/
+AutoPreferSingle:1,"1":"AutoPreferSingle",
+/**
+* Always use double quotes in all strings
+*/
+ForceDouble:2,"2":"ForceDouble",
+/**
+* Always use single quotes in all strings
+*/
+ForceSingle:3,"3":"ForceSingle", });
 /**
 * When to use call parentheses
 */
@@ -283,26 +303,6 @@ Full:0,"0":"Full",
 * Perform no verification of the output.
 */
 None:1,"1":"None", });
-/**
-* The style of quotes to use within string literals
-*/
-const QuoteStyle = Object.freeze({
-/**
-* Use double quotes where possible, but change to single quotes if it produces less escapes
-*/
-AutoPreferDouble:0,"0":"AutoPreferDouble",
-/**
-* Use single quotes where possible, but change to double quotes if it produces less escapes
-*/
-AutoPreferSingle:1,"1":"AutoPreferSingle",
-/**
-* Always use double quotes in all strings
-*/
-ForceDouble:2,"2":"ForceDouble",
-/**
-* Always use single quotes in all strings
-*/
-ForceSingle:3,"3":"ForceSingle", });
 /**
 * What mode to use if we want to collapse simple functions / guard statements
 */
@@ -735,7 +735,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Load and initialize the WASM module
-const wasmPath = join(__dirname, '..', 'stylua.web', 'stylua_lib_bg.wasm');
+const wasmPath = join(__dirname, 'stylua.web', 'stylua_lib_bg.wasm');
 const wasmBytes = readFileSync(wasmPath);
 initSync(wasmBytes);
 
